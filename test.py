@@ -74,6 +74,14 @@ class TestMainFlask(TestCase):
 			self.assertEqual(response.status_code, 201)
 			self.assertEqual(data['data'],[{'incidentid':3,'message':"Updated the red-flag record's comment"}])
 
+#tests that an incident is correctly deleted
+	def test_delete_red_flag(self):
+		response = self.client.delete('/api/v1/red-flags/4')
+
+		data = json.loads(response.data.decode())
+		self.assertEqual(response.status_code, 201)
+		self.assertEqual(data['data'],[{'incidentid':4,'message':'red-flag record has been deleted'}])
+
 
 
 

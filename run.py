@@ -124,6 +124,22 @@ def edit_red_flag_comment(version,red_flag_id):
 		return jsonify({'status':404},{'error':'Incident not found'}), 404
 	return jsonify({'data':display_list,'status':201}), 201
 
+#deletes the incident
+@app.route('/api/<version>/red-flags/<int:red_flag_id>',methods = ['DELETE'])
+def delete_red_flag(version, red_flag_id):
+
+	try:
+		#gets the incident to be deleted
+		del(list_of_incidents[red_flag_id-1])
+
+		display_list=[ {'incidentid':red_flag_id,'message':"red-flag record has been deleted"}
+		]
+
+	#this exception is thrown if the incident refered to does not exist
+	except IndexError:
+		return jsonify({'status':404},{'error':'Incident not found'}), 404
+	return jsonify({'data':display_list,'status':201}), 201
+
 
 
 
