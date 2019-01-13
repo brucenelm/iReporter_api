@@ -33,6 +33,24 @@ class TestMainFlask(TestCase):
 					 					'status':'invesstgation',
 					 					'comment':'weired'})
 
+#tests that a new incident can be added
+	def test_addred_flag(self):
+
+		now_test = datetime.datetime.now()
+		response = self.client.post('/api/v1/red-flags',
+                                        content_type='application/json',
+                                        data=json.dumps(dict(createdBy = 'Bob',
+                                        					 type='Red-Flag',
+                                        					 Location='45,67',
+                                        					 comment='Weired'
+                                        					 )))
+
+
+		data = json.loads(response.data.decode())
+		self.assertEqual(response.status_code, 201)
+		self.assertEqual(data['data'],[{'incidentid':4,'message':'Created red-flag record'}])
+
+
 
 
 if __name__ == '__main__':

@@ -60,8 +60,35 @@ def get_one_red_flag(version,red_flag_id):
 		return jsonify({'status':404},{'error':'Incident not found'}), 404
 	return jsonify({'data':incident,'status':200})
 
+#creates a new incident
+@app.route('/api/<version>/red-flags',methods = ['POST'])
+def addred_flag(version):
+	#counts the number of records present in the list
+	incidentid = len(list_of_incidents)
+
+	#returns the current date and time
+	now = datetime.datetime.now()
+
+	#values are entered from here
+	incident = {'incidentid': incidentid+1,
+				'createdOn':now,
+				'createdBy':request.json['createdBy'],
+				'type':request.json['type'],
+				'Location':request.json['Location'],
+				'image':'image',
+				'video':'video',
+				'status': 'Under Investgation',
+				'comment':request.json['comment']
+}
+
+	#Record is added to the list
+	list_of_incidents.append(incident)
 
 
+	#the list contais the status code and "Created red-flag record" message
+	display_list=[{'incidentid':incidentid+1,'message':'Created red-flag record'}]
+
+	return jsonify({'data':display_list,'status':201}), 201
 
 
 
