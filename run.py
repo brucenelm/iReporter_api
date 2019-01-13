@@ -51,6 +51,19 @@ def get_red_flags(version):
 	 
 	return jsonify({'status':200,'data':list_of_incidents})
 
+#returns a specific red-flag
+@app.route('/api/<version>/red-flags/<int:red_flag_id>', methods = ['GET'])
+def get_one_red_flag(version,red_flag_id):
+	try:
+		incident = list_of_incidents[red_flag_id-1]  
+	except IndexError:
+		return jsonify({'status':404},{'error':'Incident not found'}), 404
+	return jsonify({'data':incident,'status':200})
+
+
+
+
+
 
 if __name__ == "__main__":
 	app.run(debug=True)
