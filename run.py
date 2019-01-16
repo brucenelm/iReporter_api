@@ -60,6 +60,7 @@ def get_one_red_flag(version,red_flag_id):
 		return jsonify({'status':404},{'error':'Incident not found'}), 404
 	return jsonify({'data':incident,'status':200})
 
+
 #creates a new incident
 @app.route('/api/<version>/red-flags',methods = ['POST'])
 def addred_flag(version):
@@ -124,6 +125,7 @@ def edit_red_flag_comment(version,red_flag_id):
 		return jsonify({'status':404},{'error':'Incident not found'}), 404
 	return jsonify({'data':display_list,'status':201}), 201
 
+
 #deletes the incident
 @app.route('/api/<version>/red-flags/<int:red_flag_id>',methods = ['DELETE'])
 def delete_red_flag(version, red_flag_id):
@@ -139,9 +141,6 @@ def delete_red_flag(version, red_flag_id):
 	except IndexError:
 		return jsonify({'status':404},{'error':'Incident not found'}), 404
 	return jsonify({'data':display_list,'status':201}), 201
-
-
-
 
 if __name__ == "__main__":
 	app.run(debug=True)
