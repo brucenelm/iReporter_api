@@ -55,6 +55,9 @@
 <br>
 <br>
 
+
+
+
 <div class = "form2"> 
 <table cellspacing="0" cellpadding="0" align="center">
   <tr>
@@ -63,7 +66,7 @@
     <th>Status</th>
     <th></th>
   </tr>
-  <tr>
+  <tr id = "raw1">
     <td>Corrupt Officer <a href="details_page_redflag.html">(Details)</a></td>
     <td>Office of the officer lat 1.20, long 24</td>
     <td>Investgating</td>
@@ -78,7 +81,26 @@
 <!--     <button type="button">Cancel Flag</button>
       
  -->     
-      <input type="submit" value="Cancel Flag">
+      <input type="submit" value="Cancel Flag" onclick="myFunction('raw1')">
+    </td>
+  </tr>
+  </tr>
+  <tr id = "raw2">
+    <td>Corrupt Officer <a href="details_page_redflag.html">(Details)</a></td>
+    <td>Office of the officer lat 1.20, long 24</td>
+    <td>Investgating</td>
+    <td>
+<!--     <button type="button">Edit Geolocation</button>
+ -->   
+    <form action="edit_geolocation_redflag.html">
+       <input type="submit" value="Edit Geolocation">
+    </form>
+    </td> 
+    <td>
+<!--     <button type="button">Cancel Flag</button>
+      
+ -->     
+      <input type="submit" value="Cancel Flag" onclick="myFunction2("raw2")>
     </td>
   </tr>
   </tr>
@@ -97,26 +119,7 @@
 <!--     <button type="button">Cancel Flag</button>
       
  -->     
-      <input type="submit" value="Cancel Flag">
-    </td>
-  </tr>
-  </tr>
-  <tr>
-    <td>Corrupt Officer <a href="details_page_redflag.html">(Details)</a></td>
-    <td>Office of the officer lat 1.20, long 24</td>
-    <td>Investgating</td>
-    <td>
-<!--     <button type="button">Edit Geolocation</button>
- -->   
-    <form action="edit_geolocation_redflag.html">
-       <input type="submit" value="Edit Geolocation">
-    </form>
-    </td> 
-    <td>
-<!--     <button type="button">Cancel Flag</button>
-      
- -->     
-      <input type="submit" value="Cancel Flag">
+      <input type="submit" value="Cancel Flag" )>
     </td>
   </tr>
   </tr>
@@ -173,11 +176,28 @@
                --></form>    
 
         </div>
-
+<!-- 
   </th>
     <th></th>
   </tr>
-  </table>
+  </table> -->
+
+<script>
+function myFunction() {
+  document.getElementById("raw1").style.display ='none'
+}
+</script>
+
+<!-- <script>
+function myFunction2() {
+  document.getElementById("raw2").style.display ='none'
+}
+</script> -->
+
+
+
+
+
 
   <h2>5 Incidents  Under Investagation</h2>
   <h2>0 Incidents  Resolved</h2>
