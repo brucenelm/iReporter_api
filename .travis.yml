@@ -15,11 +15,8 @@ python:
 #Install all dependecies
 install:
   - pip install -r requirements.txt
-  - pip install coveralls
 
 #Run tests
 script:
   - python test.py
-  -coverage run --source=home run.py test home
 
-  after_success: coveralls
