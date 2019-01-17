@@ -19,7 +19,8 @@ install:
 #Run tests
 script:
   - pytest test.py --cov
-  
+
+#runs coverall 
 after_success:
   - coveralls
 
