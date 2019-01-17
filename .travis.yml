@@ -19,6 +19,7 @@ install:
 #Run tests
 script:
   - python -m pytest --cov
+  
 
 after_success:
   - coveralls
